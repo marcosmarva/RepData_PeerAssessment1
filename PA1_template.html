@@ -141,7 +141,7 @@ for (i in 1:nrow(activity)) {
 <p>Then, I create a new dataset that is equal to the original dataset but with the missing data filled in.</p>
 <pre class="r"><code>new.activity &lt;- activity
 new.activity$steps &lt;- fill.na</code></pre>
-<p>Now I will make a histogram of the total number of steps taken each day. I first calculate</p>
+<p>Now I make a histogram of the total number of steps taken each day. I first calculate</p>
 <pre class="r"><code>dayly.steps.2 &lt;- aggregate(steps ~ date, data = new.activity, sum, na.rm = TRUE)</code></pre>
 <p>and display the histogram:</p>
 <pre class="r"><code>hist(dayly.steps.2$steps, main = &quot;Total steps by day&quot;, xlab = &quot;day&quot;, col = &quot;yellow&quot;)</code></pre>
@@ -154,7 +154,7 @@ new.activity$steps &lt;- fill.na</code></pre>
 </div>
 <div id="are-there-differences-in-activity-patterns-between-weekdays-and-weekends" class="section level2">
 <h2>Are there differences in activity patterns between weekdays and weekends?</h2>
-<p>In this section I will use the <code>weekdays()</code> function. Now I work wih the dataset with the filled-in missing values. I will create a new factor variable in the dataset with two level, weekday and weekend, indicating whether a given date is a weekday or weekend day.</p>
+<p>In this section I use the <code>weekdays()</code> function. Now I work wih the dataset with the filled-in missing values. I create a new factor variable in the dataset with two level, weekday and weekend, indicating whether a given date is a weekday or weekend day.</p>
 <pre class="r"><code>day &lt;- weekdays(as.Date(data$date))
 daylevel &lt;- vector()
 for (i in 1:nrow(activity)) {
@@ -171,7 +171,7 @@ activity$daylevel &lt;- factor(activity$daylevel)
 
 stepsByDay &lt;- aggregate(steps ~ interval + daylevel, data = activity, mean)
 names(stepsByDay) &lt;- c(&quot;interval&quot;, &quot;daylevel&quot;, &quot;steps&quot;)</code></pre>
-<p>Finally, I will make a panel plot containing a time series plot (i.e. type = “l”) of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis):</p>
+<p>Finally, I make a panel plot containing a time series plot (i.e. type = “l”) of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis):</p>
 <pre class="r"><code>require(lattice)</code></pre>
 <pre><code>## Loading required package: lattice</code></pre>
 <pre class="r"><code> xyplot(steps ~ interval | daylevel, stepsByDay, type = &quot;l&quot;, layout = c(1, 2), 

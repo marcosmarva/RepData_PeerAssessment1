@@ -173,7 +173,7 @@ new.activity <- activity
 new.activity$steps <- fill.na
 ```
 
-Now I will make a histogram of the total number of steps taken each day. 
+Now I make a histogram of the total number of steps taken each day. 
 I first calculate 
 
 
@@ -213,8 +213,8 @@ median(dayly.steps.2$steps)
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
-In this section I will use the `weekdays()` function. Now I work wih the dataset with the filled-in missing  values. 
-I will create a new factor variable in the dataset with two level, weekday and weekend, indicating whether a given date is a weekday or weekend day.
+In this section I use the `weekdays()` function. Now I work wih the dataset with the filled-in missing  values. 
+I create a new factor variable in the dataset with two level, weekday and weekend, indicating whether a given date is a weekday or weekend day.
 
 
 ```r
@@ -236,7 +236,7 @@ stepsByDay <- aggregate(steps ~ interval + daylevel, data = activity, mean)
 names(stepsByDay) <- c("interval", "daylevel", "steps")
 ```
 
-Finally, I will make a panel plot containing a time series plot (i.e. type = “l”) of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis): 
+Finally, I make a panel plot containing a time series plot (i.e. type = “l”) of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis): 
 
 ```r
 require(lattice)
