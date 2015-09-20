@@ -134,7 +134,7 @@ I first calculate
 dayly.steps.2 <- aggregate(steps ~ date, data = new.activity, sum, na.rm = TRUE)
 ```
 
-and display the histogram is
+and display the histogram:
 
 ```{r}
 hist(dayly.steps.2$steps, main = "Total steps by day", xlab = "day", col = "yellow")
@@ -154,7 +154,7 @@ median(dayly.steps.2$steps)
 ## Are there differences in activity patterns between weekdays and weekends?
 
 In this section I will use the `weekdays()` function. Now I work wih the dataset with the filled-in missing  values. 
-I will create a new factor variable in the dataset with two levels, weekday and weekend, indicating whether a given date is a weekday or weekend day.
+I will create a new factor variable in the dataset with two level, weekday and weekend, indicating whether a given date is a weekday or weekend day.
 
 ```{r}
 day <- weekdays(as.Date(data$date))
